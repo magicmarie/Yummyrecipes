@@ -1,0 +1,9 @@
+html{
+	background-color: gray;
+}
+#signup{
+	float: center;
+	padding-right: 200px;
+	padding-left: 200px;
+	text-align: center
+}

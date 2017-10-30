@@ -1,0 +1,15 @@
+
+html{
+	background: gray;
+}
+#main {
+	float: center;
+	padding-right: 200px;
+	padding-left: 200px;
+	text-align: center
+}
+#button1{
+	background: blue;
+	width: 100px;
+	height: 50px;
+}
