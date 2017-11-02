@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+app/static/images/Thumbs.db
+app/static/img/Thumbs.db
+designs/Thumbs.db
+app/static/images/Thumbs.db
