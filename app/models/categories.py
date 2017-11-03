@@ -1,5 +1,8 @@
 class Category(object):
 
-    def __init__(self):
-        self.category_name = recipe_name
+
+""" This holds the recipe category details"""
+
+    def __init__(self, recipe_category):
+        self.recipe_category = recipe_category
         self.recipes = {}
