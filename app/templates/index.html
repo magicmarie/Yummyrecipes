@@ -1,0 +1,32 @@
+{%extends "base.html" %} {% block main %}
+
+<body>
+	<header>
+		<div class="container">
+			<div class="topnav" id="myTopnav">
+
+				<ul class="on-right">
+					<li class="active">
+						<a href="{{url_for(main)}">Home</a>
+					</li>
+					<li>
+						<a href="{{url_for(login)}}">Login</a>
+					</li>
+					<li>
+						<a href="{{url_for(signup)}}">Sign Up</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<div id="main">
+		<h1 class='name'>YUMMY RECIPES</h1>
+		<h2>Home</h2>
+		<p>
+			Welcome to the yummy recipes site. Get ready to find out exciting ways to store your recipes.
+		</p>
+	</div>
+
+</body>
+{% endblock %}
