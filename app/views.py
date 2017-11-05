@@ -13,7 +13,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 user = Yummy()
 
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def main():
     return render_template('index.html')
 
@@ -24,20 +24,17 @@ def signup():
     if form.validate_on_submit():
         email = form.email.data
         password = form.password.data
-        print('After form')
         if email not in user.app_users:
-            # creating a user id
-            if len(user.app_users) == 0:
+            #  creating a user id
+            dict_length = len(user.app_users)
+            if dict_length == 0:
                 id = 1
             id = len(user.app_users) + 1
-            print('After length')
 
             new_account = user.signup(email, password)
             flash('Account has been created')
-            print('after return instance')
             if new_account:
                 """ takes you to the login page """
-                print('')
                 return redirect(url_for('login'))
             flash("Account not created")
 

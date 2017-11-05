@@ -17,7 +17,8 @@ class LoginForm(FlaskForm):
 
 class SignupForm(FlaskForm):
     """ This allows users to create accounts"""
-    email = StringField('Email:', validators=[DataRequired()])
+    name = StringField('name', validators=[DataRequired()])
+    email = StringField('email', validators=[DataRequired()])
     password = PasswordField('New Password', [validators.Required(
     ), validators.EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Repeat Password')
