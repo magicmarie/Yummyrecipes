@@ -1,94 +1,99 @@
 html, body {
-background-color: black;
+	background-image: url(/static/img/2.jpeg);
 }
 .topnav {
-  background-color: #333;
-  overflow: hidden;
+	background-color: #333;
+	overflow: hidden;
 }
 .topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
 }
 .topnav a.active {
-  background-color: #4CAF50;
-  color: white;
+	background-color: #4CAF50;
+	color: white;
 }
 
 .wrapper {
-  margin-top: 80px;
-  margin-bottom: 80px;
+	margin-top: 80px;
+	margin-bottom: 80px;
 }
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+	background-color: #ddd;
+	color: black;
 }
 
 
 .form-signin {
-  max-width: 380px;
-  padding: 15px 35px 45px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+	max-width: 380px;
+	padding: 15px 35px 45px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .form-signin .form-signin-heading{
-  margin-bottom: 30px;
-  font-weight: normal;
+	margin-bottom: 30px;
+	font-weight: normal;
 }
 .form-signin .form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	/* margin-bottom: 10px; */
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .form-signin .form-control:focus {
-  z-index: 2;
+	z-index: 2;
 }
 .form-signin input[type="text"] {
-  margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	}
+
 .form-signin input[type="password"] {
-  margin-bottom: 20px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
- 
- #signup{
-  float: center;
-  padding-right: 200px;
-  padding-left: 200px;
-  text-align: center
+
+.form-signin input[type="submit"] {
+	margin-top: 20px;
+	}
+#signup {
+	float: center;
+	padding-right: 200px;
+	padding-left: 200px;
+	text-align: center
 }
 
 #main {
-  float: left;
-  padding-right: 200px;
-  padding-left: 200px;
-  text-align: left;
+	float: left;
+	padding-right: 200px;
+	padding-left: 200px;
+	text-align: left;
 }
 
 .on-right {
-  float: right;
+	float: right;
 }
 
 .on-right li {
-  display: inline;
+	display: inline;
 }
 
 .on-right li+li {
-  margin-left: 35px;
+	margin-left: 35px;
 }
 
 .bk {
-  
+
 }
