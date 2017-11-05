@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sign up</title>
-	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="static/css/style.css">
-</head>
+{%extends "base.html" %}{%block title%} Sign Up{%endblock title%} {%block navbar %}
+<header>
+	<div class="container">
+		<div class="topnav" id="myTopnav">
 
-<body>
+			<ul class="on-right">
+				<li>
+					<a href="{{url_for('main')}}">Home</a>
+				</li>
+				<li>
+					<a href="{{url_for('login')}}">Login</a>
+				</li>
+				<li class="active">
+					<a href="{{url_for('signup')}}">Sign Up</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
+{%endblock navbar%} {% block main %}
+
 <center>
-		<div class="wrapper">
-				<form class="form-signin">       
-				  <h2 class="form-signin-heading">New user, Create an account</h2>
-				  <input type="text" class="form-control" name="fullnames" placeholder="Full Names" required="" autofocus="" />
-				  <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-				  <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-				  <input type="password" class="form-control" name="password" placeholder="Confirm Password" required=""/>      
-				  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>  
-				  <p class="text-center">Already have an account? <a href="{{ url_for("login") }}">Login</a> 
-				</form>
-			  </div>
-</body>
-</html>
+	<div class="wrapper">
+		<form class="form-signin">
+			<h2 class="form-signin-heading">New user, Create an account</h2>
+			<input type="text" class="form-control" name="fullnames" placeholder="Full Names" required="" autofocus="" />
+			<input type="text" class="form-control" name="emailaddress" placeholder="Email Address" required="" autofocus="" />
+			<input type="password" class="form-control" name="password" placeholder="Password" required="" />
+			<input type="password" class="form-control" name="password" placeholder="Confirm Password" required="" />
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+			<p class="text-center">Already have an account?
+				<a href="{{ url_for("login") }}">Login</a>
+		</form>
+	</div>
+	{% endblock %}
