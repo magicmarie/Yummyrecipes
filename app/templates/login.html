@@ -17,15 +17,12 @@
     </div>
   </div>
 </header>
-{%endblock navbar%} {% block main %}}
-
-
-
+{%endblock navbar%} {% block main %}
 <div class='bk'>
   <div class="wrapper">
-
-    <form action="/" method="post">
-      {{form.username.label}} {{form.username}} {{form.password}}{{form.password}}
+    <form class='form-signin' action="/" method="post">
+      {{form.email.label}} {{form.email}}
+      <br> {{form.password.label}}{{form.password}}
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <p class="text-center">Don't have an account yet?
         <a href="{{ url_for("signup") }}">Sign Up</a>
@@ -34,7 +31,7 @@
     <!--
     <form class="form-signin">
       <h2 class="form-signin-heading">login</h2>
-      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+      <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
       <input type="password" class="form-control" name="password" placeholder="Password" required="" />
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <p class="text-center">Don't have an account yet?

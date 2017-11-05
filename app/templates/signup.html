@@ -21,13 +21,13 @@
 
 <center>
 	<div class="wrapper">
-		<form class="form-signin">
+		<form class="form-signin" method="POST">
 			<h2 class="form-signin-heading">New user, Create an account</h2>
 			<input type="text" class="form-control" name="fullnames" placeholder="Full Names" required="" autofocus="" />
 			<input type="text" class="form-control" name="emailaddress" placeholder="Email Address" required="" autofocus="" />
 			<input type="password" class="form-control" name="password" placeholder="Password" required="" />
 			<input type="password" class="form-control" name="password" placeholder="Confirm Password" required="" />
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+			<input type="submit">Sign Up</button>
 			<p class="text-center">Already have an account?
 				<a href="{{ url_for("login") }}">Login</a>
 		</form>
