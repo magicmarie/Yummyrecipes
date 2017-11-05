@@ -18,28 +18,19 @@ class User(UserMixin):
 
     def create_categories(self, id, recipe_category):
         """This creates category """
-        if recipe_category not in self.categories:
-            new_category = Category(recipe_category)
-            self.categories[recipe_category] = new_category
-            return self.categories
-        return "category not created"
+        pass
 
     def view_category(self, recipe_category):
         """ This allows the user to view the catogory list"""
-
-        if recipe_category in self.categories:
-            self.recipe_category[new_category_name] = self.recipe_category[category_name]
-            del self.recipe_category[category_name]
-            return self.recipe_category
+        pass
 
     def delete_category(self, id, recipe_category):
         """ This deletes a recipe category"""
-
-        del self.recipe_category[category_name]
-        return self.recipe_category
+        pass
 
     def edit_category(self, id, recipe_category):
         """ This edits a recipe category"""
+        pass
 
     def create_recipe(self, recipe_category, recipe_item):
         """ This creates recipe items  in a specified recipe category."""
