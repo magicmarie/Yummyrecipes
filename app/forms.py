@@ -22,6 +22,7 @@ class SignupForm(FlaskForm):
     password = PasswordField('New Password', [validators.Required(
     ), validators.EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Repeat Password')
+    print("....", name, email, password, confirm)
 
 
 class CategoryForm(FlaskForm):

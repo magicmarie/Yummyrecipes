@@ -16,6 +16,12 @@ class Yummy(object):
     def signup(self, email, password):
         """new user sign up """
         if email not in self.app_users:
+            #  creating a user id
+            dict_length = len(self.app_users)
+            if dict_length == 0:
+                id = 1
+            id = len(self.app_users) + 1
+
             hashed = generate_password_hash(password)
             self.app_users[email] = User(id, email, hashed)
             return True
@@ -25,8 +31,8 @@ class Yummy(object):
         """account login """
 
         if email in self.app_users:
-            hashed = self.app_users[email].hashed
-            if check_password_hash(hashed, password):
+            hashed_pswd = self.app_users[email].password
+            if check_password_hash(hashed_pswd, password):
                 return self.app_users[email]
             return "Wrong email/password"
         return "The email does not exist, please signup"

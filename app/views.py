@@ -21,15 +21,14 @@ def main():
 @app.route("/signup",  methods=["GET", "POST"])
 def signup():
     form = SignupForm()
+    print("???", form)
     if form.validate_on_submit():
+        name = form.name.data
         email = form.email.data
         password = form.password.data
+        print(">>", email, password, name)
         if email not in user.app_users:
-            #  creating a user id
-            dict_length = len(user.app_users)
-            if dict_length == 0:
-                id = 1
-            id = len(user.app_users) + 1
+
 
             new_account = user.signup(email, password)
             flash('Account has been created')
@@ -62,4 +61,29 @@ def login():
 @app.route('/account', methods=['GET', 'POST'])
 def account():
 
+    form = LoginForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
+
+        if email in user.app_users:
+            loggedin = user.login(email, password)
+
+            if isinstance(loggedin, User):
+                return redirect(url_for('account'))
+        return render_template('login.html', form=form)
     return render_template('account.html')
+
+
+@app.route("/settings")
+#@login_required
+def settings():
+    pass
+
+
+@app.route("/logout")
+#@login_required
+def logout():
+    """When the user is ready to log out"""
+    logout_user()
+    return redirect(somewhere)
