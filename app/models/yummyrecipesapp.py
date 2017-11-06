@@ -15,7 +15,10 @@ class Yummy(object):
 
     def signup(self, email, password):
         """new user sign up """
+
+        # checks if email in our users dictionary
         if email not in self.app_users:
+
             #  creating a user id
             dict_length = len(self.app_users)
             if dict_length == 0:

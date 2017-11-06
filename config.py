@@ -1,5 +1,7 @@
+# config.py
 
-# this enable Flask's debugging features.
 
 SECRET_KEY = 'Magic_Marie'
-DEBUG = True
+
+
+DEBUG = True  # this enable Flask's debugging features.

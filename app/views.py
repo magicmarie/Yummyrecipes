@@ -1,9 +1,10 @@
 # local imports
-from app import app
+from app import app, login_manager
 from app.models.users import User
 from app.models.yummyrecipesapp import Yummy
 from flask_wtf import form
 from .forms import LoginForm, SignupForm, RecipeForm, CategoryForm
+
 
 # third party imports
 from flask import Flask, flash, render_template, url_for, redirect, request
@@ -29,7 +30,6 @@ def signup():
         print(">>", email, password, name)
         if email not in user.app_users:
 
-
             new_account = user.signup(email, password)
             flash('Account has been created')
             if new_account:
@@ -54,6 +54,7 @@ def login():
             loggedin = user.login(email, password)
 
             if isinstance(loggedin, User):
+                login_user(loggedin)
                 return redirect(url_for('account'))
     return render_template('login.html', form=form)
 
@@ -75,15 +76,21 @@ def account():
     return render_template('account.html')
 
 
+'''
 @app.route("/settings")
-#@login_required
+@login_required
 def settings():
     pass
 
 
 @app.route("/logout")
-#@login_required
+@login_required
 def logout():
     """When the user is ready to log out"""
     logout_user()
-    return redirect(somewhere)
+    return redirect(somewhere) '''
+
+
+@login_manager.user_loader
+def load_user(id):
+    return user.app_users.get(int(id))  # returns a value for the given key
