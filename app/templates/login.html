@@ -21,7 +21,13 @@
 <div class='bk'>
   <div class="wrapper">
     <form class="form-signin" action="{{ url_for('login') }}" method="post">
+<<<<<<< HEAD
       {{ form.hidden_tag() }} {{ form.email(placeholder="email e.g me@gmail.com", class="form-control") }} {{ form.password(placeholder="Password", class="form-control") }}
+=======
+      {{ form.hidden_tag() }}
+      <h2 class="form-signin-heading">Log into your account</h2>
+      {{ form.email(placeholder="email e.g me@gmail.com", class="form-control") }} {{ form.password(placeholder="Password", class="form-control") }}
+>>>>>>> User-Interface
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <p class="text-center">Don't have an account yet?
         <a href="{{ url_for("signup") }}">Sign Up</a>

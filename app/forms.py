@@ -26,8 +26,14 @@ class SignupForm(FlaskForm):
 
 
 class CategoryForm(FlaskForm):
+<<<<<<< HEAD
     """creates a category """
     Category = StringField('Category:', validators=[DataRequired()])
+=======
+    """creates a recipe category  """
+    Category = StringField('Category:', validators=[DataRequired()])
+    Description = StringField('Description:', validators=[DataRequired()])
+>>>>>>> User-Interface
 
 
 class RecipeForm(FlaskForm):
