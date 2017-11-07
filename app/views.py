@@ -14,25 +14,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 user = Yummy()
 
-<<<<<<< HEAD
-=======
 """route function of the Flask class tells the app which URL should call the
 associated function/ could use add_url_rule() too"""
 # it binds a URL to a function
 
-#
-
->>>>>>> User-Interface
 
 @app.route("/")
 def main():
     return render_template('index.html')
 
-<<<<<<< HEAD
-
-@app.route("/signup",  methods=["GET", "POST"])
-def signup():
-=======
 # Get:Sends data in unencrypted form to the server.
 # Post:sends form data to a URL.
 
@@ -41,7 +31,6 @@ def signup():
 def signup():
     """ collects form data present in signup.form in a dictionary object and
     sends it for rendering to signup.html."""
->>>>>>> User-Interface
     form = SignupForm()
     print("???", form)
     if form.validate_on_submit():
@@ -55,18 +44,12 @@ def signup():
             flash('Account has been created')
             if new_account:
                 """ takes you to the login page """
-<<<<<<< HEAD
-                return redirect(url_for('login'))
-            flash("Account not created")
-
-=======
                 """ builds a URL for a specific function. The function accepts
                 the name of a function as first argument corresponding to the
                 variable part of URL."""
                 return redirect(url_for('login'))
             flash("Account not created")
     """ Using the Jinja2 template engine to render an html file"""
->>>>>>> User-Interface
     return render_template('signup.html', form=form)
 
 
@@ -89,23 +72,6 @@ def login():
     return render_template('login.html', form=form)
 
 
-<<<<<<< HEAD
-@app.route('/account', methods=['GET', 'POST'])
-def account():
-
-    form = LoginForm()
-    if form.validate_on_submit():
-        email = form.email.data
-        password = form.password.data
-
-        if email in user.app_users:
-            loggedin = user.login(email, password)
-
-            if isinstance(loggedin, User):
-                return redirect(url_for('account'))
-        return render_template('login.html', form=form)
-    return render_template('account.html')
-=======
 @app.route('/account')
 def account():
     return render_template('account.html')
@@ -120,7 +86,6 @@ def addcategory():
         description = form.description.data
 
     return render_template('addcategory.html', form=form)
->>>>>>> User-Interface
 
 
 '''
