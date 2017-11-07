@@ -1,0 +1,42 @@
+{%extends "base.html" %}{%block title%} Log In{%endblock title%}{%block navbar %}
+<header>
+  <div class="container">
+    <div class="topnav" id="myTopnav">
+
+      <ul class="on-right">
+        <li>
+          <a href="{{url_for('main')}}">Home</a>
+        </li>
+        <li>
+          <a href="{{url_for('login')}}">Login</a>
+        </li>
+        <li class="active">
+          <a href="{{url_for('signup')}}">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+{%endblock navbar%} {% block main %}
+<div class='bk'>
+  <div class="wrapper">
+    <form class="form-signin" action="{{ url_for('login') }}" method="post">
+      {{ form.hidden_tag() }} {{ form.email(placeholder="email e.g me@gmail.com", class="form-control") }} {{ form.password(placeholder="Password", class="form-control") }}
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      <p class="text-center">Don't have an account yet?
+        <a href="{{ url_for("signup") }}">Sign Up</a>
+      </p>
+    </form>
+    <!--
+    <form class="form-signin">
+      <h2 class="form-signin-heading">login</h2>
+      <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      <p class="text-center">Don't have an account yet?
+        <a href="{{ url_for("signup") }}">Sign Up</a></p>
+    </form>
+  -->
+  </div>
+</div>
+{% endblock %}

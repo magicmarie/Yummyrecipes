@@ -1,0 +1,32 @@
+{%extends "base.html" %}{%block title%} Account{%endblock title%} {%block navbar %}
+<header>
+    <div class="container">
+        <div class="topnav" id="myTopnav">
+
+            <ul class="on-right">
+                <li>
+                    <a href="{{url_for('main')}}">Home</a>
+                </li>
+                <li>
+                    <a href="">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+{%endblock navbar%} {% block main %}
+<div class='bk'>
+    <div class="wrapper">
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Create Recipe Category</h2>
+            <p> Welcome to your Yummy Recipes Account</p>
+            <a href="">
+                <button class="btn btn-lg btn-primary btn-block" type="addcategory">Add Recipe Category</button>
+            </a>
+            <center>
+
+            </center>
+        </form>
+    </div>
+</div>
+{% endblock %}
