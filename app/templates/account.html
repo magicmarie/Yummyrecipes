@@ -8,25 +8,50 @@
                     <a href="{{url_for('main')}}">Home</a>
                 </li>
                 <li>
-                    <a href="">Log Out</a>
+                    <a href="{{url_for('main')}}">Log Out</a>
                 </li>
             </ul>
         </div>
     </div>
 </header>
 {%endblock navbar%} {% block main %}
-<div class='bk'>
-    <div class="wrapper">
-        <form class="form-signin">
+<center>
+    <div class='bk'>
+        <div class="wrapper">
+            <!-- <form class="form-signin"> -->
             <h2 class="form-signin-heading">Create Recipe Category</h2>
             <p> Welcome to your Yummy Recipes Account</p>
-            <a href="{{ url_for("addcategory") }}">
-                <button class="btn btn-lg btn-primary btn-block" type="addcategory">Add Recipe Category</button>
-            </a>
-            <center>
 
-            </center>
-        </form>
+
+            {% for category_data in category_data %}
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>{{category_data.name}}</h1>
+                    <p>{{category_data.description}}</p>
+                </div>
+                <div class="col-md-3">
+                    <button>Delete</button>
+                </div>
+                <div class="col-md-3">
+                    <button>Edit</button>
+                </div>
+                <div class="col-md-3">
+                    <button>View</button>
+                </div>
+            </div>
+            {% endfor %}
+
+
+            <a href="{{ url_for('addcategory') }}">
+                <button class="btn btn-lg btn-primary">
+                    Add Recipe Category
+                </button>
+            </a>
+
+
+        </div>
     </div>
-</div>
+</center>
+<!-- </form> -->
+
 {% endblock %}

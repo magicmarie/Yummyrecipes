@@ -8,7 +8,7 @@
                     <a href="{{url_for('main')}}">Home</a>
                 </li>
                 <li>
-                    <a href="">Log Out</a>
+                    <a href="{{url_for('main')}}">Log Out</a>
                 </li>
             </ul>
         </div>
@@ -17,10 +17,12 @@
 {%endblock navbar%} {% block main %}
 <div class='bk'>
     <div class="wrapper">
-        <form class="form-signin">
+        <form class="form-signin" method="post" , action="addcategory">
+            {{ form.hidden_tag() }}
             <h2 class="form-signin-heading">Create Recipe Category</h2>
-            <input type="text" class="form-control" name="recipecategory" placeholder="Category Name" required="" autofocus="" />
-            <input type="text" class="form-control" name="description" placeholder="Description" required="" autofocus="" />
+            {{ form.category(placeholder="Category Name", class="form-control") }} {{ form.description(placeholder="Description", class="form-control") }}
+            <!-- <input type="text" class="form-control" name="recipecategory" placeholder="Category Name" required="" autofocus="" />
+            <input type="text" class="form-control" name="description" placeholder="Description" required="" autofocus="" /> -->
             <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
         </form>
     </div>

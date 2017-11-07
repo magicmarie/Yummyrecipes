@@ -3,6 +3,7 @@ from app import app
 from app import login_manager
 from app.models.users import User
 from app.models.yummyrecipesapp import Yummy
+from app.models.categories import Category
 from flask_wtf import form
 from .forms import LoginForm, SignupForm, RecipeForm, CategoryForm
 
@@ -13,12 +14,11 @@ from flask_login import login_required, login_user, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 user = Yummy()
+category_data = []
 
 """route function of the Flask class tells the app which URL should call the
 associated function/ could use add_url_rule() too"""
 # it binds a URL to a function
-
-#
 
 
 @app.route("/")
@@ -34,12 +34,10 @@ def signup():
     """ collects form data present in signup.form in a dictionary object and
     sends it for rendering to signup.html."""
     form = SignupForm()
-    print("???", form)
     if form.validate_on_submit():
         name = form.name.data
         email = form.email.data
         password = form.password.data
-        print(">>", email, password, name)
         if email not in user.app_users:
 
             new_account = user.signup(email, password)
@@ -76,7 +74,7 @@ def login():
 
 @app.route('/account')
 def account():
-    return render_template('account.html')
+    return render_template('account.html', category_data=category_data)
 
 
 @app.route('/addcategory', methods=['GET', 'POST'])
@@ -84,8 +82,13 @@ def addcategory():
 
     form = CategoryForm()
     if form.validate_on_submit():
-        category_name = form.category_name.data
+        category_name = form.category.data
         description = form.description.data
+        category = Category(category_name, description)
+        category_data.append(
+            dict(name=category.name, description=category.description))
+        print(category_data)
+        return redirect(url_for('account'))
 
     return render_template('addcategory.html', form=form)
 
