@@ -14,7 +14,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 user = Yummy()
 
-# route function of the Flask class tells the app which URL should call the associated function.
+"""route function of the Flask class tells the app which URL should call the
+associated function/ could use add_url_rule() too"""
 # it binds a URL to a function
 
 #
@@ -24,9 +25,14 @@ user = Yummy()
 def main():
     return render_template('index.html')
 
+# Get:Sends data in unencrypted form to the server.
+# Post:sends form data to a URL.
+
 
 @app.route("/signup",  methods=["GET", "POST"])
 def signup():
+    """ collects form data present in signup.form in a dictionary object and
+    sends it for rendering to signup.html."""
     form = SignupForm()
     print("???", form)
     if form.validate_on_submit():
@@ -40,9 +46,12 @@ def signup():
             flash('Account has been created')
             if new_account:
                 """ takes you to the login page """
+                """ builds a URL for a specific function. The function accepts
+                the name of a function as first argument corresponding to the
+                variable part of URL."""
                 return redirect(url_for('login'))
             flash("Account not created")
-
+    """ Using the Jinja2 template engine to render an html file"""
     return render_template('signup.html', form=form)
 
 
@@ -65,21 +74,20 @@ def login():
     return render_template('login.html', form=form)
 
 
-@app.route('/account', methods=['GET', 'POST'])
+@app.route('/account')
 def account():
-
-    form = LoginForm()
-    if form.validate_on_submit():
-        email = form.email.data
-        password = form.password.data
-
-        if email in user.app_users:
-            loggedin = user.login(email, password)
-
-            if isinstance(loggedin, User):
-                return redirect(url_for('account'))
-        return render_template('login.html', form=form)
     return render_template('account.html')
+
+
+@app.route('/addcategory', methods=['GET', 'POST'])
+def addcategory():
+
+    form = CategoryForm()
+    if form.validate_on_submit():
+        category_name = form.category_name.data
+        description = form.description.data
+
+    return render_template('addcategory.html', form=form)
 
 
 '''
