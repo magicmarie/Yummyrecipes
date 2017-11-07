@@ -16,6 +16,9 @@ class User(UserMixin):
         self.password = password
         self.categories = {}
 
+    def get_id(self):
+        return self.email
+
     def create_categories(self, id, recipe_category):
         """This creates category """
         pass

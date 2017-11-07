@@ -1,5 +1,6 @@
 # local imports
-from app import app, login_manager
+from app import app
+from app import login_manager
 from app.models.users import User
 from app.models.yummyrecipesapp import Yummy
 from flask_wtf import form
@@ -12,6 +13,11 @@ from flask_login import login_required, login_user, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 user = Yummy()
+
+# route function of the Flask class tells the app which URL should call the associated function.
+# it binds a URL to a function
+
+#
 
 
 @app.route("/")
@@ -92,5 +98,5 @@ def logout():
 
 
 @login_manager.user_loader
-def load_user(id):
-    return user.app_users.get(int(id))  # returns a value for the given key
+def load_user(email):
+    return user.app_users.get(email)  # returns a value for the given key
