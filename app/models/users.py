@@ -10,8 +10,7 @@ class User(UserMixin):
     """ This allows recipe categories and recipe items to be created and
     manipulated """
 
-    def __init__(self, id, email, password):
-        self.id = id
+    def __init__(self, email, password):
         self.email = email
         self.password = password
         self.categories = {}
@@ -19,7 +18,7 @@ class User(UserMixin):
     def get_id(self):
         return self.email
 
-    def create_categories(self, id, recipe_category):
+    def create_categories(self, recipe_category):
         """This creates category """
         pass
 
@@ -27,11 +26,11 @@ class User(UserMixin):
         """ This allows the user to view the catogory list"""
         pass
 
-    def delete_category(self, id, recipe_category):
+    def delete_category(self, recipe_category):
         """ This deletes a recipe category"""
         pass
 
-    def edit_category(self, id, recipe_category):
+    def edit_category(self, recipe_category):
         """ This edits a recipe category"""
         pass
 
