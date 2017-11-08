@@ -25,6 +25,12 @@ class SignupForm(FlaskForm):
     """print("....", name, email, password, confirm)"""
 
 
+class EditForm(FlaskForm):
+    """ Editing the category"""
+    category = StringField('Category:', validators=[DataRequired()])
+    description = StringField('Description:', validators=[DataRequired()])
+
+
 class CategoryForm(FlaskForm):
     """creates a recipe category  """
     category = StringField('Category:', validators=[DataRequired()])
@@ -33,5 +39,5 @@ class CategoryForm(FlaskForm):
 
 class RecipeForm(FlaskForm):
     """ creates a recipe item"""
-    name = StringField('Recipe:', validators=[DataRequired()])
+    recipe = StringField('Recipe:', validators=[DataRequired()])
     description = StringField('Description:', validators=[DataRequired()])

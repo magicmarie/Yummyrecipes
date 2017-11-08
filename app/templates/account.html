@@ -5,7 +5,7 @@
 
             <ul class="on-right">
                 <li>
-                    <a href="{{url_for('main')}}">Home</a>
+                    <a href="{{url_for('account')}}">Home</a>
                 </li>
                 <li>
                     <a href="{{url_for('main')}}">Log Out</a>
@@ -18,25 +18,36 @@
 <center>
     <div class='bk'>
         <div class="wrapper">
-            <!-- <form class="form-signin"> -->
             <h2 class="form-signin-heading">Create Recipe Category</h2>
             <p> Welcome to your Yummy Recipes Account</p>
 
 
-            {% for category_data in category_data %}
+            {% for category in category_data.values() %}
             <div class="row">
                 <div class="col-md-3">
-                    <h1>{{category_data.name}}</h1>
-                    <p>{{category_data.description}}</p>
+                    <h1>{{category.name}}</h1>
+                    <p>{{category.description}}</p>
                 </div>
                 <div class="col-md-3">
-                    <button>Delete</button>
+                    <h1>
+                        <a href="{{ url_for('deletecategory', category_name=category.name)}}">
+                            <button class="btn btn-lg btn-primary">Delete</button>
+                        </a>
+                    </h1>
                 </div>
                 <div class="col-md-3">
-                    <button>Edit</button>
+                    <h1>
+                        <a href="{{ url_for('editcategory', category_name=category.name)}}">
+                            <button class="btn btn-lg btn-primary">Edit</button>
+                        </a>
+                    </h1>
                 </div>
                 <div class="col-md-3">
-                    <button>View</button>
+                    <h1>
+                        <a href="{{ url_for('recipelist')}}">
+                            <button class="btn btn-lg btn-primary">View</button>
+                        </a>
+                    </h1>
                 </div>
             </div>
             {% endfor %}
