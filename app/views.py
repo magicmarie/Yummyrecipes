@@ -76,11 +76,13 @@ def login():
 
 
 @app.route('/account')
+@login_required
 def account():
     return render_template('account.html', category_data=category_data)
 
 
 @app.route('/addcategory', methods=['GET', 'POST'])
+@login_required
 def addcategory():
     """" addcategory form"""
     form = CategoryForm()
@@ -95,6 +97,7 @@ def addcategory():
 
 
 @app.route('/deletecategory/<category_name>', methods=['GET', 'POST'])
+@login_required
 def deletecategory(category_name):
     """ deletes a category from the category list"""
     if category_name in category_data:
@@ -104,6 +107,7 @@ def deletecategory(category_name):
 
 
 @app.route('/editcategory/<category_name>', methods=['GET', 'POST'])
+@login_required
 def editcategory(category_name):
     form = EditForm()
     form.category.data = category_data[category_name].name
@@ -119,6 +123,7 @@ def editcategory(category_name):
 
 
 @app.route('/addrecipeitem', methods=['GET', 'POST'])
+@login_required
 def addrecipeitem():
     form = RecipeForm()
     if form.validate_on_submit():
@@ -130,9 +135,13 @@ def addrecipeitem():
     return render_template('addrecipeitem.html', form=form)
 
 
-@app.route('/recipelist')
+@app.route('/recipelist', methods=['GET'])
+@login_required
 def recipelist():
-    return render_template('recipelist.html', recipe_data=recipe_data)
+    if request.method == 'GET':
+        import pdb
+        pdb.set_trace()
+        return render_template('recipelist.html', recipe_data=recipe_data)
 
 
 @login_manager.user_loader
