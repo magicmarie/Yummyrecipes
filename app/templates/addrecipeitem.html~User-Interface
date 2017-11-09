@@ -1,4 +1,4 @@
-{%extends "base.html" %}{%block title%} Edit Recipe Category{%endblock title%} {%block navbar %}
+{%extends "base.html" %}{%block title%} Add Recipe item{%endblock title%} {%block navbar %}
 <header>
     <div class="container">
         <div class="topnav" id="myTopnav">
@@ -17,11 +17,11 @@
 {%endblock navbar%} {% block main %}
 <div class='bk'>
     <div class="wrapper">
-        <form class="form-signin" method="post" , action="{{url_for ('editcategory', category_name=category_name)}}">
+        <form class="form-signin" action="{{ url_for('addrecipeitem') }}" method="post">
             {{ form.hidden_tag() }}
-            <h2 class="form-signin-heading">Edit Recipe Category</h2>
-            {{ form.category(placeholder="Category Name", class="form-control") }} {{ form.description(placeholder="Description", class="form-control") }}
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Edit</button>
+            <h2 class="form-signin-heading">Create Recipe Item</h2>
+            {{ form.recipe(placeholder="Recipe Name", class="form-control") }} {{ form.description(placeholder="Description", class="form-control") }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
         </form>
     </div>
 </div>

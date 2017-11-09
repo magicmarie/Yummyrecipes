@@ -22,16 +22,22 @@ class SignupForm(FlaskForm):
     password = PasswordField('New Password', [validators.Required(
     ), validators.EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Repeat Password')
-    print("....", name, email, password, confirm)
+    """print("....", name, email, password, confirm)"""
+
+
+class EditForm(FlaskForm):
+    """ Editing the category"""
+    category = StringField('Category:', validators=[DataRequired()])
+    description = StringField('Description:', validators=[DataRequired()])
 
 
 class CategoryForm(FlaskForm):
     """creates a recipe category  """
-    Category = StringField('Category:', validators=[DataRequired()])
-    Description = StringField('Description:', validators=[DataRequired()])
+    category = StringField('Category:', validators=[DataRequired()])
+    description = StringField('Description:', validators=[DataRequired()])
 
 
 class RecipeForm(FlaskForm):
     """ creates a recipe item"""
-    name = StringField('Recipe:', validators=[DataRequired()])
+    recipe = StringField('Recipe:', validators=[DataRequired()])
     description = StringField('Description:', validators=[DataRequired()])

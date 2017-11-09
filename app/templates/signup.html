@@ -26,10 +26,6 @@
 			<h2 class="form-signin-heading">New user, Create an account</h2>
 			{{ form.name(placeholder="Full Names", class="form-control") }} {{ form.email(placeholder="email e.g me@gmail.com", class="form-control") }}
 			{{ form.password(placeholder="Password", class="form-control") }} {{ form.confirm(placeholder="Password", class="form-control") }}
-			<!-- <input type="text" class="form-control" name="fullnames" placeholder="Full Names" required="" autofocus="" /> -->
-			<!-- <input type="text" class="form-control" name="emailaddress" placeholder="Email Address" required="" autofocus="" />
-			<input type="password" class="form-control" name="password" placeholder="Password" required="" />
-			<input type="password" class="form-control" name="password" placeholder="Confirm Password" required="" /> -->
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
 			<p class="text-center">Already have an account?
 				<a href="{{ url_for("login") }}">Login</a>
