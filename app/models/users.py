@@ -46,15 +46,6 @@ class User(UserMixin):
         the_category.recipes[recipe_name] = new_recipe
         return the_category.recipes
 
-    def view_recipes(self, category_name):
-        all_recipes = self.category_data[category_name].recipes
-        return all_recipes
-
-    def edit_recipe(self, category_name, recipe_name, ingredients):
-        the_recipes = self.category_data[category_name].recipes
-        updated_recipe = Recipe(category_name, ingredients)
-        the_recipes[recipe_name] = updated_recipe
-
     def delete_recipe(self, category_name, recipe_name):
         """Deletes a recipe,takes in two attributes, checks categories
         dictionary for key category_name. checks the recipes list in the
