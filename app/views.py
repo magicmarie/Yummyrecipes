@@ -4,8 +4,10 @@ from app import login_manager
 from app.models.users import User
 from app.models.yummyrecipesapp import Yummy
 from app.models.categories import Category
+from flask_bootstrap import Bootstrap
 from app.models.recipeitem import Recipe
-from flask_wtf import form
+
+# third party imports
 from .forms import LoginForm, SignupForm, RecipeForm, CategoryForm, EditForm
 
 
@@ -16,7 +18,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 user = Yummy()
 category_data = {}
-
 recipe_data = {}
 
 """route function of the Flask class tells the app which URL should call the
@@ -51,7 +52,7 @@ def signup():
                 the name of a function as first argument corresponding to the
                 variable part of URL."""
                 return redirect(url_for('login'))
-            flash("Account not created")
+            flash('Account not created')
     """ Using the Jinja2 template engine to render an html file"""
     return render_template('signup.html', form=form)
 
@@ -138,10 +139,7 @@ def addrecipeitem():
 @app.route('/recipelist', methods=['GET'])
 @login_required
 def recipelist():
-    if request.method == 'GET':
-        import pdb
-        pdb.set_trace()
-        return render_template('recipelist.html', recipe_data=recipe_data)
+    return render_template('recipelist.html', recipe_data=recipe_data)
 
 
 @login_manager.user_loader

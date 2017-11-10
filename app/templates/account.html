@@ -1,4 +1,4 @@
-{%extends "base.html" %}{%block title%} Account{%endblock title%} {%block navbar %}
+{%extends "base.html" %} {%block title%} Account{%endblock title%} {%block navbar %}
 <header>
     <div class="container">
         <div class="topnav" id="myTopnav">
@@ -21,8 +21,18 @@
             <h2 class="form-signin-heading">Create Recipe Category</h2>
             <p> Welcome to your Yummy Recipes Account</p>
 
-
-            {% for category in category_data.values() %}
+            {% with messages = get_flashed_messages() %} {% if messages %}
+            <div class="row">
+                <div class="col-md-12">
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        <strong>Success!</strong> {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %} {% endwith %} {% for category in category_data.values() %}
             <div class="row">
                 <div class="col-md-3">
                     <h1>{{category.name}}</h1>
@@ -44,8 +54,8 @@
                 </div>
                 <div class="col-md-3">
                     <h1>
-                        <a href="{{ url_for('recipelist')}}">
-                            <button class="btn btn-lg btn-primary">View</button>
+                        <a href="{{ url_for('recipelist', category_name=category_name)}}">
+                            <button class="btn btn-lg btn-primary">Add recipe item</button>
                         </a>
                     </h1>
                 </div>

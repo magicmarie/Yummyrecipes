@@ -1,7 +1,7 @@
 {%extends "base.html" %}{%block title%} Sign Up{%endblock title%} {%block navbar %}
 <header>
 	<div class="container">
-		<div class="topnav" id="myTopnav">
+		<div class="topnav topnav a.active" id="myTopnav">
 
 			<ul class="on-right">
 				<li>
@@ -17,8 +17,7 @@
 		</div>
 	</div>
 </header>
-{%endblock navbar%} {% block main %}
-
+{% endblock navbar %} {% block main %} {% include 'includes/flashes.html' %}
 <center>
 	<div class="wrapper">
 		<form class="form-signin" action="{{ url_for('signup') }}" method="post">
@@ -26,6 +25,8 @@
 			<h2 class="form-signin-heading">New user, Create an account</h2>
 			{{ form.name(placeholder="Full Names", class="form-control") }} {{ form.email(placeholder="email e.g me@gmail.com", class="form-control") }}
 			{{ form.password(placeholder="Password", class="form-control") }} {{ form.confirm(placeholder="Password", class="form-control") }}
+
+
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
 			<p class="text-center">Already have an account?
 				<a href="{{ url_for("login") }}">Login</a>

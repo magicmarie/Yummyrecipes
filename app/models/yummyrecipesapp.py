@@ -36,10 +36,3 @@ class Yummy(object):
                 return self.app_users[email]
             return "Wrong email/password"
         return "The email does not exist, please signup"
-
-    """def create_r(self, username, cat_name, rcep_nm, des):
-        usr = app_users[username]
-        catgr = usr.categries[cat_name]
-        rcpe = Recipe(rcep_nm, des)
-        catgr.add_recpie(rcpe)
-"""

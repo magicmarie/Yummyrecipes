@@ -1,7 +1,8 @@
-{%extends "base.html" %}{%block title%} Log In{%endblock title%}{%block navbar %}
+{% import 'bootstrap/utils.html' as utils%}{%extends "base.html" %}{%block title%} Log In{%endblock title%}{%block navbar
+%}
 <header>
   <div class="container">
-    <div class="topnav" id="myTopnav">
+    <div class="topnav topnav a.active" id="myTopnav">
 
       <ul class="on-right">
         <li>
@@ -20,10 +21,18 @@
 {%endblock navbar%} {% block main %} {% for category in category_data %} {{ category[name] }} {% endfor %}
 <div class='bk'>
   <div class="wrapper">
+    {{utils.flashed_messages(dismissible=True)}}
     <form class="form-signin" action="{{ url_for('login') }}" method="post">
       {{ form.hidden_tag() }}
       <h2 class="form-signin-heading">Log into your account</h2>
       {{ form.email(placeholder="email e.g me@gmail.com", class="form-control") }} {{ form.password(placeholder="Password", class="form-control") }}
+
+      <div>
+        {% if error %}
+        <p class="text-center text-danger">{{ error }}</p>
+        {% endif %}
+      </div>
+
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       <p class="text-center">Don't have an account yet?
         <a href="{{ url_for("signup") }}">Sign Up</a>

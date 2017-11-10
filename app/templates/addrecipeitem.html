@@ -17,7 +17,7 @@
 {%endblock navbar%} {% block main %}
 <div class='bk'>
     <div class="wrapper">
-        <form class="form-signin" action="{{ url_for('addrecipeitem') }}" method="post">
+        <form class="form-signin" action="/addrecipeitem" method="post">
             {{ form.hidden_tag() }}
             <h2 class="form-signin-heading">Create Recipe Item</h2>
             {{ form.recipe(placeholder="Recipe Name", class="form-control") }} {{ form.description(placeholder="Description", class="form-control") }}

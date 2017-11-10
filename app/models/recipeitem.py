@@ -12,8 +12,6 @@ def get_name(self):
     return self.name
 
 
-
-
 def set_recipe(self, name, description):
     self.name = name
     self.description = description

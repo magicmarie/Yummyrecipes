@@ -2,7 +2,7 @@ html, body {
 	background-image: url(/static/img/2.jpeg);
 }
 .topnav {
-	background-color: #333;
+	background-color: rgb(15, 15, 15);
 	overflow: hidden;
 }
 .topnav a {
@@ -15,9 +15,19 @@ html, body {
 	font-size: 17px;
 }
 .topnav a.active {
-	background-color: #4CAF50;
+	background-color: rgb(64, 70, 64);
 	color: white;
 }
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: rgb(10, 10, 10);
+	color: white;
+	text-align: center;
+ }
 
 .wrapper {
 	margin-top: 80px;
