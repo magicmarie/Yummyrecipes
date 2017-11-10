@@ -142,6 +142,13 @@ def recipelist():
     return render_template('recipelist.html', recipe_data=recipe_data)
 
 
+@app.route('/logout', methods=['GET'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main'))
+
+
 @login_manager.user_loader
 def load_user(email):
     return user.app_users.get(email)  # returns a value for the given key
