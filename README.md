@@ -32,8 +32,14 @@ Then install all the required dependencies
 
     pip install -r requirements.txt
 
-To start the application run:
-
-    set FLASK_CONFIG=development
-    set FLASK_APP=run.py
-    flask run
+* To start the application run:
+    * On windows, Open your terminal
+        * set FLASK_CONFIG=development
+        * set FLASK_APP=run.py
+        * flask run
+        * browse to localhost:5000
+    * on unix like  os , Open your terminal
+        * export FLASK_CONFIG=development
+        * export FLASK_APP=run.py
+        * flask run
+        * browse to localhost:5000
