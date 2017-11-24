@@ -12,9 +12,18 @@ This application has the following features:
 
 ## Setup
 
-To use the application, ensure that you have python 3.6+, clone the repository to your local machine. Open your git commandline and run
+To use the application, ensure that you have python 3.6+,pip3,virtualenv installed on your machine.
 
+You can install grab this repository in two ways
+
+__1.Open your git commandline and clone the repository to your local machine__. 
+
+```sh
     git clone https://github.com/magicmarie/Yummyrecipes.git
+```
+
+__2.Or simply browse to [Github](https://github.com/magicmarie/Yummyrecipes.git) and download the project manually__
+
 
 Enter the project directory
 
